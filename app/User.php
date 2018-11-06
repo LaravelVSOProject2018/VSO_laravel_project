@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','email_verified_at','approved','role_id','timestamps'
     ];
 
     /**
@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+     public function role(){
+        return belongsTo('App\
+            Role');
+    }
+
+    public function enrollments(){
+        return hasMany('App\Enrollment');
+    }
 }
