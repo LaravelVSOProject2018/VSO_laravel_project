@@ -16,10 +16,10 @@ class CreateScoresTable extends Migration
         Schema::create('scores', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('session_id');
-            $table->foreign('session_id')->references('id')->on('sessions');
+            $table->foreign('session_id')->references('id')->on('sessions')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedInteger('profile_id');
-            $table->foreign('profile_id')->references('id')->on('profiles');
-            $table->float('score');
+            $table->foreign('profile_id')->references('id')->on('profiles')->onUpdate('cascade')->onDelete('cascade');
+            $table->float('score',3,1);
             $table->timestamps();
         });
     }

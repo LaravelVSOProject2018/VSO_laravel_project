@@ -16,11 +16,11 @@ class CreateSessionsTable extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kind');
-            $table->dateTime('start_datetime');
-            $table->dateTime('end_datetime');
-            $table->timestamps();
+            $table->dateTime('datetime');
+            $table->integer('duration');
             $table->unsignedInteger('exam_id');
-            $table->foreign('exam_id')->references('id')->on('exams');
+            $table->foreign('exam_id')->references('id')->on('exams')->onUpdate('cascade')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

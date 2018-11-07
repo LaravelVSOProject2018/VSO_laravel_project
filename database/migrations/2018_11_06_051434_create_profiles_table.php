@@ -19,6 +19,8 @@ class CreateProfilesTable extends Migration
             $table->string('family');
             $table->string('photo');
             $table->text('description')->nullable();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

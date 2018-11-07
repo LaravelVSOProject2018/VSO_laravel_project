@@ -17,9 +17,9 @@ class CreateProgramexamsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->unsignedInteger('program_id');
-            $table->foreign('program_id')->references('id')->on('programs');
+            $table->foreign('program_id')->references('id')->on('programs')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedInteger('exam_id');
-            $table->foreign('exam_id')->references('id')->on('exams');
+            $table->foreign('exam_id')->references('id')->on('exams')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
