@@ -10,10 +10,10 @@ class Session extends Model
     	'kind','start_datetime','end_datetime','exam_id'];
 
     public function exam(){
-    	return belongsTo('App\Exam');
+    	return $this->belongsTo('App\Exam');
     }
 
     public function scores(){
-    	return hasMany('App\Score');
+    	return $this->hasMany('App\Score');
     }
 }

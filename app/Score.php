@@ -10,12 +10,12 @@ class Score extends Model
     	'session_id','profile_id','score'];
 
     public function session(){
-    	return belongsTo('App\Session');
+    	return $this->belongsTo('App\Session');
     }
 
 
     public function profile(){
-    	return belongsTo('App\Profile');
+    	return $this->belongsTo('App\Profile');
     }
 
  }
