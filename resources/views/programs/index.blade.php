@@ -3,6 +3,15 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
   
 <h2>Programs Admin Panel</h2>
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@else 
+	 <div class="alert alert-warning">
+       <strong>Error!</strong>
+    </div>   
+@endif
 <table class="table table-striped table-dark" border="2 solid">
 <thead>
 	<tr bg-primary>
@@ -17,13 +26,13 @@
 <tbody>
 	@foreach($programs as $program)
 	<tr class="bg-success">
-		<td><a href="{{-- {{ route('animals.show',$animal->id)}} --}}">{{ $program->name }}</a></td>
+		<td>{{ $program->name }}</a></td>
 		<td>{{ $program->description }}</td>
 		<td>{{ $program->duration }} years</td>
 		<td>{{ $program->quota }} students</td>
 		<td>{{ $program->department->name }}</td>
 		<td><a class="btn btn-success" href="{{ route('programs.edit',$program->id)}}">Update</a></td>
-		<td><a class="btn btn-warning" href="{{-- {{ route('exams.index',$program->id)}} --}}">Exams</a></td>
+		<td><a class="btn btn-warning" href="{{ url('programsexams/'.$program->id)}}">Exams</a></td>
 		<td>
 			<form method="POST" action="{{ route('programs.destroy',$program->id) }}">
 				{{ csrf_field() }}
@@ -36,4 +45,5 @@
 	</tbody>
 </table>
 	<a class="btn btn-primary" href="{{ route('programs.create')}}">Create</a>
+	<a class="btn btn-primary" href="{{ url()->previous() }}">Back</a>
 	</form>

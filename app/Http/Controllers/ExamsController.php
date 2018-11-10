@@ -46,7 +46,7 @@ class ExamsController extends Controller
 
        ]);
 
-         return redirect('exams');
+         return redirect('exams')->with('message', 'Done!');
     }
 
 
@@ -58,7 +58,8 @@ class ExamsController extends Controller
      */
     public function show($id)
     {
-        //
+        $exam = Exam::findOrFail($id);
+        return view('exams.show',compact('exam'));
     }
 
     /**
@@ -90,7 +91,7 @@ class ExamsController extends Controller
         $exam->program_id = $request->get('program');
         $exam->description = $request->get('description');
         $exam->save();
-        return redirect('/exams');
+        return redirect('/exams')->with('message', 'Done!');
     }
 
     /**
@@ -103,6 +104,6 @@ class ExamsController extends Controller
     {
         $exam = Exams::find($id);
         $exam->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Done!');
     }
 }

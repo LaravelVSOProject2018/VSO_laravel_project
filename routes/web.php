@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Route::resource('/programs', 'ProgramsController');
 Route::resource('/exams', 'ExamsController');
+Route::get('programsexams/{id}', 'ProgramsExamsController@show');
 

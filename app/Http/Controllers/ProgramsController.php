@@ -50,7 +50,7 @@ class ProgramsController extends Controller
            'department_id' => $request->department,
        ]);
 
-         return redirect('programs');
+         return redirect('programs')->with('message', 'Done!');
     }
 
     /**
@@ -96,7 +96,7 @@ class ProgramsController extends Controller
         $program->quota = $request->get('quota');
         $program->department_id = $request->get('department');
         $program->save();
-        return redirect('/programs');
+        return redirect('/programs')->with('message', 'Done!');
     }
 
     /**
@@ -109,6 +109,6 @@ class ProgramsController extends Controller
     {
         $program = Program::find($id);
         $program->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Done!');
     }
 }

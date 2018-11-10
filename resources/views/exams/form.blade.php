@@ -23,3 +23,6 @@
 <div class='form-group'>
  {!! Form::submit($submitButtonText, ['class' => 'btn btn-lg btn-success form-control']) !!}
 </div>
+<div>
+	<a class="btn btn-lg btn-primary form-control" href="{{ url()->previous() }}">Back</a>
+</div>

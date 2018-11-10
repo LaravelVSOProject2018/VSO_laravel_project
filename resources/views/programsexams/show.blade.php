@@ -2,16 +2,7 @@
  <script  data-src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
   
-<h2>Exams Admin Panel</h2>
-@if(session()->has('message'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-    </div>
-@else 
-	 <div class="alert alert-warning">
-       <strong>Error!</strong>
-    </div>   
-@endif
+<h2>Available Exams Panel</h2>
 <table class="table table-striped table-dark" border="2 solid">
 <thead>
 	<tr bg-primary>
@@ -24,14 +15,14 @@
 	</tr>
 </thead>
 <tbody>
-	@foreach($exams as $exam)
+	@foreach($program->exams as $exam)
 	<tr class="bg-success">
 		<td>{{ $exam->name }}</a></td>
 		<td>{{ $exam->program->name }}</td>
 		<td>{{ $exam->description }}</td>
 		@if(!($exam->sessions->isEmpty()))
 			@foreach ($exam->sessions as $session)
-   				<td>{{ $session->start_datetime}}</td>   
+   				 <td>{{ $session->start_datetime}}</td>
 			@endforeach
 			@else
    			 	<td>Not session yet</td>
@@ -50,6 +41,7 @@
 	@endforeach
 	</tbody>
 </table>
-	<a class="btn btn-primary" href="{{ route('exams.create')}}">Create</a>
 	<a class="btn btn-primary" href="{{ url()->previous() }}">Back</a>
+
 	</form>
+
