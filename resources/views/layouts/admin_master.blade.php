@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@yield('title')</title>
+
+<link href="{{ asset('img/favicon.ico') }}" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/flaticon.css')}} ">
+<link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }} ">
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }} ">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-warp">
+			<div class="container">
+				<a href="#" class="site-logo">
+					<img src="img/logo.png" alt="">
+				</a>
+				<div class="user-panel">
+					<a href="#">Login</a><span>/</span><a href="">Register</a>
+				</div>
+				<div class="nav-switch">
+					<i class="fa fa-bars"></i>
+				</div>
+		<ul class="main-menu">
+{{-- 			<li>
+				<a href="{{ route('/') }}">
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="{{ route('departments') }}">
+					Departments
+					</a>
+			</li> --}}
+			<li>
+				<a href="{{ route('programs.index') }}">
+					Programs
+				</a>
+			</li>
+			<li>
+				<a href="{{ route('exams.index') }}">
+					Exams
+				</a>
+			</li>
+			<li>
+				<a href="{{ route('sessions.index') }}">
+					Sessions
+				</a>
+			</li>
+		</ul>
+		</div>
+	</div>
+</header>
+<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
+		<div class="container text-white">
+			<h3>@yield('pageheader')</h3>
+		</div>
+</section>
+<section class="courses-section spad">
+		<div class="container">
+	@yield('content')
+		</div>
+	</section>
+<footer>
+</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+	<script src="{{ asset('js/circle-progress.min.js') }}"></script>
+	<script src="{{ asset('js/main.js') }}"></script>
+</body>
+</html>

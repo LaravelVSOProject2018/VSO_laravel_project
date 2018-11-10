@@ -1,15 +1,12 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
- <script  data-src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
-  
-<h2>Programs Admin Panel</h2>
+@extends('layouts.admin_master')
+
+@section('pageheader')
+Programs Admin Panel
+@endsection
+@section('content')
 @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
-    </div>
-@else 
-	 <div class="alert alert-warning">
-       <strong>Error!</strong>
     </div>   
 @endif
 <table class="table table-striped table-dark" border="2 solid">
@@ -47,3 +44,5 @@
 	<a class="btn btn-primary" href="{{ route('programs.create')}}">Create</a>
 	<a class="btn btn-primary" href="{{ url()->previous() }}">Back</a>
 	</form>
+
+@endsection

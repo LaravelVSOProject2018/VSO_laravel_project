@@ -1,6 +1,6 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
- <script  data-src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+@extends('layouts.admin_edit_master')
+
+@section('content')
   
 <h2>Available Exams Panel</h2>
 <table class="table table-striped table-dark" border="2 solid">
@@ -44,4 +44,6 @@
 	<a class="btn btn-primary" href="{{ url()->previous() }}">Back</a>
 
 	</form>
+
+@endsection
 

@@ -15,7 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//programs controller
 Route::resource('/programs', 'ProgramsController');
+//exams controller
 Route::resource('/exams', 'ExamsController');
+//programs, then show exams controller
 Route::get('programsexams/{id}', 'ProgramsExamsController@show');
+//session controller
+Route::resource('/sessions', 'SessionsController');
+
 
