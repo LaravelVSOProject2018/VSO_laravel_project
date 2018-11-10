@@ -19,6 +19,8 @@ class CreateExamsTable extends Migration
             $table->text('description')->nullable();
             $table->float('duration', 3, 1);
             $table->timestamps();
+            $table->unsignedInteger('program_id');
+            $table->foreign('program_id')->references('id')->on('programs')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

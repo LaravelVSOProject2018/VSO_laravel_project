@@ -20,7 +20,7 @@ class CreateSessionsTable extends Migration
             $table->dateTime('end_datetime');
             $table->timestamps();
             $table->unsignedInteger('exam_id');
-            $table->foreign('exam_id')->references('id')->on('exams');
+            $table->foreign('exam_id')->references('id')->on('exams')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
