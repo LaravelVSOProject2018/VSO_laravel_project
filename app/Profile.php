@@ -13,5 +13,8 @@ class Profile extends Model
     	return $this->belongsTo('App\User');
     }
 
-   
+    public function enrollments(){
+    	return $this->belongsToMany('App\Enrollment');
+    }
+
 }

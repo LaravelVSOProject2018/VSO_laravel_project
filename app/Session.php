@@ -13,7 +13,8 @@ class Session extends Model
     	return $this->belongsTo('App\Exam');
     }
 
-    public function scores(){
-    	return $this->hasMany('App\Score');
+    public function enrollments(){
+    	return $this->belongsToMany('App\Enrollment');
     }
+
 }
