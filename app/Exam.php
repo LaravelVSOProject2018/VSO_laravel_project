@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
 	protected $fillable = [
-    	'name','description','duration'];
+    	'name','description','program_id'];
 
-    public function programs(){
-    	return $this->belongsToMany('App\Program');
+    public function program(){
+    	return $this->belongsTo('App\Program');
+    }
+
+    public function sessions(){
+    	return $this->hasMany('App\Session');
     }
 
 }

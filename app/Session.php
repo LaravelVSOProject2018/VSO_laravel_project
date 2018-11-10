@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Session extends Model
 {
     protected $fillable = [
-    	'kind','start_datetime','end_datetime','exam_id'];
+    	'name','start_datetime','duration','exam_id'];
 
     public function exam(){
     	return $this->belongsTo('App\Exam');
     }
 
-    public function scores(){
-    	return $this->hasMany('App\Score');
+    public function enrollments(){
+    	return $this->belongsToMany('App\Enrollment');
     }
+
 }
