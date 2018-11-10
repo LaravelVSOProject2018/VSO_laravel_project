@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/programs', 'ProgramsController');
+Route::resource('/exams', 'ExamsController');
+
