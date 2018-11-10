@@ -13,7 +13,7 @@ class CreateEnrollmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('enrollment', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('session_id');
             $table->foreign('session_id')->references('id')->on('sessions')->onUpdate('cascade')->onDelete('cascade');
