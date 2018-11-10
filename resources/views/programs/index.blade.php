@@ -11,7 +11,7 @@
 		<th scope="col">Duration</th>
 		<th scope="col">Quota</th>
 		<th scope="col">Department</th>
-		<th scope="col" colspan="2">Manage</th>
+		<th scope="col" colspan="3">Manage</th>
 	</tr>
 </thead>
 <tbody>
@@ -23,6 +23,7 @@
 		<td>{{ $program->quota }} students</td>
 		<td>{{ $program->department->name }}</td>
 		<td><a class="btn btn-success" href="{{ route('programs.edit',$program->id)}}">Update</a></td>
+		<td><a class="btn btn-warning" href="{{-- {{ route('exams.index',$program->id)}} --}}">Exams</a></td>
 		<td>
 			<form method="POST" action="{{ route('programs.destroy',$program->id) }}">
 				{{ csrf_field() }}

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exam;
 use App\Program;
-use App\Department;
+use App\Session;
 
-class ProgramsController extends Controller
+class ExamsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class ProgramsController extends Controller
      */
     public function index()
     {
-        $programs=Program::all();
-        return view('programs.index',compact('programs'));
+        $exams=Exam::all();
+        return view('exams.index',compact('exams'));
     }
 
     /**
@@ -26,8 +27,8 @@ class ProgramsController extends Controller
      */
     public function create()
     {
-        $departments =['' => 'Select department'] + Department::pluck('name','id')->toArray();
-        return view('programs.create', compact('departments'));
+        $program =['' => 'Select program'] + Program::pluck('name','id')->toArray();
+        return view('exams.create', compact('program'));
     }
 
     /**
@@ -38,20 +39,16 @@ class ProgramsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        // $type = Type::updateOrCreate(['kind' => $request->type]);
-        // $id = $type->id;
-
-       Program::create([
+        Exam::create([
            'name' => $request->name,
+           'program_id' => $request->program,
            'description' => $request->description,
-           'duration' => $request->duration,
-           'quota' => $request->quota,
-           'department_id' => $request->department,
+
        ]);
 
-         return redirect('programs');
+         return redirect('exams');
     }
+
 
     /**
      * Display the specified resource.
@@ -72,11 +69,11 @@ class ProgramsController extends Controller
      */
     public function edit($id)
     {
-        $currentDepartment = Program::find($id)->department_id;
-        $departmensPluck= (Department::pluck('name','id'));
-        $departments = [$currentDepartment => $departmensPluck[$currentDepartment]] + Department::pluck('name','id')->toArray();
-        $program = Program::findOrFail($id);
-        return view('programs.edit')->with(compact('program'))->with(compact('departments'));
+        $currentProgram = Exam::find($id)->program_id;
+        $programPluck= (Program::pluck('name','id'));
+        $program = [$currentProgram => $programPluck[$currentProgram]] + Program::pluck('name','id')->toArray();
+        $exam = Exam::findOrFail($id);
+        return view('exams.edit')->with(compact('exam'))->with(compact('program'));
     }
 
     /**
@@ -88,15 +85,12 @@ class ProgramsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $program = Program::find($id);
-        $program->name = $request->get('name');
-        $program->description = $request->get('description');
-        $program->duration = $request->get('duration');
-        $program->quota = $request->get('quota');
-        $program->department_id = $request->get('department');
-        $program->save();
-        return redirect('/programs');
+        $exam = Exam::find($id);
+        $exam->name = $request->get('name');
+        $exam->program_id = $request->get('program');
+        $exam->description = $request->get('description');
+        $exam->save();
+        return redirect('/exams');
     }
 
     /**
@@ -107,8 +101,8 @@ class ProgramsController extends Controller
      */
     public function destroy($id)
     {
-        $program = Program::find($id);
-        $program->delete();
+        $exam = Exams::find($id);
+        $exam->delete();
         return redirect()->back();
     }
 }
