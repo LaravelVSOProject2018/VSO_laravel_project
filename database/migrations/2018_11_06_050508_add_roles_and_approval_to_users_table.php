@@ -16,7 +16,7 @@ class AddRolesAndApprovalToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->tinyInteger('approved')->default('0');
             $table->unsignedInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

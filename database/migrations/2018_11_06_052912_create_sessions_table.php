@@ -15,12 +15,12 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('kind');
+            $table->string('name');
             $table->dateTime('start_datetime');
-            $table->dateTime('end_datetime');
+            $table->integer('duration');
             $table->timestamps();
             $table->unsignedInteger('exam_id');
-            $table->foreign('exam_id')->references('id')->on('exams');
+            $table->foreign('exam_id')->references('id')->on('exams')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

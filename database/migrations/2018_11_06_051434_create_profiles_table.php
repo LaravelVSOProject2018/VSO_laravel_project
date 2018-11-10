@@ -20,6 +20,8 @@ class CreateProfilesTable extends Migration
             $table->string('photo');
             $table->text('description')->nullable();
             $table->timestamps();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
