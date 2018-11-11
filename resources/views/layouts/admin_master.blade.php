@@ -32,7 +32,7 @@
 				@if (Route::has('login'))
                 <div class="user-panel">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/admin') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <span>/</span>
@@ -41,16 +41,16 @@
                 </div>
            		 @endif
 		<ul class="main-menu">
-{{-- 			<li>
-				<a href="{{ route('/') }}">
-					Home
+ 			<li>
+				<a href="{{ route('userrights.index') }}">
+					User Managment
 				</a>
 			</li>
 			<li>
-				<a href="{{ route('departments') }}">
+				<a href="{{ route('departments.index') }}">
 					Departments
 					</a>
-			</li> --}}
+			</li> 
 			<li>
 				<a href="{{ route('programs.index') }}">
 					Programs

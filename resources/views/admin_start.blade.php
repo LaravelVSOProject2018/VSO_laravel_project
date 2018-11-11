@@ -21,4 +21,21 @@
 @extends('layouts.admin_master')
        
 @section('content')
+<div class="cont">
+                <a class="btn btn-lg btn-warning form-control" href="{{ route('userrights.index') }}">
+                    User Managment
+                </a>
+                <a  class="btn btn-lg btn-primary form-control" href="{{ route('departments.index') }}">
+                    Departments
+                    </a>
+                <a class="btn btn-lg btn-primary form-control" href="{{ route('programs.index') }}">
+                    Programs
+                </a>
+                <a class="btn btn-lg btn-primary form-control" href="{{ route('exams.index') }}">
+                    Exams
+                </a>
+                <a class="btn btn-lg btn-primary form-control" href="{{ route('sessions.index') }}">
+                    Sessions
+                </a>
+</div>
 @endsection

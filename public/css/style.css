@@ -189,6 +189,9 @@ ol {
 	color: #fff;
 	cursor: pointer;
 }
+.cont a{
+	margin-bottom: 10px;
+}
 
 .site-btn:hover {
 	color: #fff;

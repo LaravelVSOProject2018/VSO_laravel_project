@@ -21,6 +21,10 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
+//departments controller
+Route::resource('/userrights', 'UserRightsController');
+//departments controller
+Route::resource('/departments', 'DepartmentsController');
 //programs controller
 Route::resource('/programs', 'ProgramsController');
 //exams controller
