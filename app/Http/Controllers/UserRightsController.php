@@ -16,8 +16,8 @@ class UserRightsController extends Controller
      */
     public function index()
     {
-        $users=User::all();
-        return view('userrights.index',compact('users'));
+        $users_r=User::all();
+        return view('userrights.index',compact('users_r'));
     }
 
     /**
@@ -65,8 +65,8 @@ class UserRightsController extends Controller
         $rolesPluck= (Role::pluck('role','id'));
         $approvals = ['0'=> 'NotApproved'] + ['1'=> 'Approved'];
         $roles = [$currentUser => $rolesPluck[$currentUser]] + Role::pluck('role','id')->toArray();
-        $user = User::findOrFail($id);
-        return view('userrights.edit')->with(compact('user'))->with(compact('roles'))->with(compact('approvals'));
+        $user_r = User::findOrFail($id);
+        return view('userrights.edit')->with(compact('user_r'))->with(compact('roles'))->with(compact('approvals'));
     }
 
     /**
@@ -78,13 +78,13 @@ class UserRightsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->approved = $request->get('approved');
-        $user->role_id = $request->get('role');
+        $user_r = User::find($id);
+        $user_r->name = $request->get('name');
+        $user_r->email = $request->get('email');
+        $user_r->approved = $request->get('approved');
+        $user_r->role_id = $request->get('role');
 
-        $user->save();
+        $user_r->save();
         return redirect('userrights')->with('message', 'Done!');
     }
 
@@ -96,8 +96,8 @@ class UserRightsController extends Controller
      */
     public function destroy($id)
     {
-        $users = User::find($id);
-        $users->delete();
+        $users_r = User::find($id);
+        $users_r->delete();
         return redirect()->back()->with('message', 'Done!');
     }
 }

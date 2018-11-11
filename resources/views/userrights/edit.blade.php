@@ -6,7 +6,7 @@
 
 <hr>
   
-  {!! Form::model($user, ['method' => 'PATCH','files' => true, 'action' => ['UserRightsController@update',$user->id]]) !!}
+  {!! Form::model($user_r, ['method' => 'PATCH','files' => true, 'action' => ['UserRightsController@update',$user_r->id]]) !!}
    @include('userrights.form', ['submitButtonText' => 'Save Changes'])
   {!! Form::close() !!}
  </div>

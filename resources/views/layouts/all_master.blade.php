@@ -26,7 +26,7 @@
 	<header class="header-section">
 		<div class="header-warp">
 			<div class="container">
-				<a href="#" class="site-logo">
+				<a href="{{ url('/') }}" class="site-logo">
 					<img src="img/logo.png" alt="">
 				</a>
 				@if (Route::has('login'))
@@ -47,7 +47,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="{{-- {{ route('exams.index') }} --}}">
+				<a href="{{ route('students.index') }}">
 					Programs
 				</a>
 			</li>

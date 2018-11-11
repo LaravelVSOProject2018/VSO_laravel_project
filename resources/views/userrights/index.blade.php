@@ -20,15 +20,15 @@ Users Admin Panel
 	</tr>
 </thead>
 <tbody>
-	@foreach($users as $user)
+	@foreach($users_r as $user_r)
 	<tr class="bg-success">
-		<td>{{ $user->name }}</a></td>
-		<td>{{ $user->email }}</td>
-		<td>{{ $user->approved }}</td>
-		<td>{{ $user->role->role }}</td>
-		<td><a class="btn btn-success" href="{{ route('userrights.edit',$user->id)}}">Update</a></td>
+		<td>{{ $user_r->name }}</a></td>
+		<td>{{ $user_r->email }}</td>
+		<td>{{ $user_r->approved }}</td>
+		<td>{{ $user_r->role->role }}</td>
+		<td><a class="btn btn-success" href="{{ route('userrights.edit',$user_r->id)}}">Update</a></td>
 		<td>
-			<form method="POST" action="{{ route('userrights.destroy',$user->id) }}">
+			<form method="POST" action="{{ route('userrights.destroy',$user_r->id) }}">
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
 			<input class="btn btn-danger" type="submit" name="submit" value="Remove">

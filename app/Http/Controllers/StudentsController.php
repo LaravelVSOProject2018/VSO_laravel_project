@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Exam;
+use App\Department;
 use App\Program;
-use App\Session;
+use App\Exam;
 
-class ExamsController extends Controller
+class StudentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class ExamsController extends Controller
     public function index()
     {
         $exams=Exam::all();
-        return view('exams.index',compact('exams'));
+        return view('students.index',compact('exams'));
     }
 
     /**
@@ -27,8 +27,7 @@ class ExamsController extends Controller
      */
     public function create()
     {
-        $program =['' => 'Select program'] + Program::pluck('name','id')->toArray();
-        return view('exams.create', compact('program'));
+        //
     }
 
     /**
@@ -39,16 +38,8 @@ class ExamsController extends Controller
      */
     public function store(Request $request)
     {
-        Exam::create([
-           'name' => $request->name,
-           'program_id' => $request->program,
-           'description' => $request->description,
-
-       ]);
-
-         return redirect('exams')->with('message', 'Done!');
+        //
     }
-
 
     /**
      * Display the specified resource.
@@ -58,8 +49,7 @@ class ExamsController extends Controller
      */
     public function show($id)
     {
-        $exam = Exam::findOrFail($id);
-        return view('exams.show',compact('exam'));
+        //
     }
 
     /**
@@ -70,11 +60,7 @@ class ExamsController extends Controller
      */
     public function edit($id)
     {
-        $currentProgram = Exam::find($id)->program_id;
-        $programPluck= (Program::pluck('name','id'));
-        $program = [$currentProgram => $programPluck[$currentProgram]] + Program::pluck('name','id')->toArray();
-        $exam = Exam::findOrFail($id);
-        return view('exams.edit')->with(compact('exam'))->with(compact('program'));
+        //
     }
 
     /**
@@ -86,12 +72,7 @@ class ExamsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $exam = Exam::find($id);
-        $exam->name = $request->get('name');
-        $exam->program_id = $request->get('program');
-        $exam->description = $request->get('description');
-        $exam->save();
-        return redirect('/exams')->with('message', 'Done!');
+        //
     }
 
     /**
@@ -102,8 +83,6 @@ class ExamsController extends Controller
      */
     public function destroy($id)
     {
-        $exam = Exam::find($id);
-        $exam->delete();
-        return redirect()->back()->with('message', 'Done!');
+        //
     }
 }

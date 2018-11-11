@@ -14,13 +14,10 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('start');
-});
 
 
-Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
-{
+
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function(){
 //departments controller
 Route::resource('/userrights', 'UserRightsController');
 //departments controller
@@ -52,3 +49,9 @@ Route::group(['middleware' => 'App\Http\Middleware\CandidateMiddleware'], functi
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('start');
+});
+
+Route::resource('/students', 'StudentsController');
