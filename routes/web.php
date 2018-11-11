@@ -33,6 +33,7 @@ Route::resource('/sessions', 'SessionsController');
 //exams, then show session controller
 Route::get('examssessions/{id}', 'ExamsSessionsController@show');
 //admin page
+//
 Route::get('/admin', function () {
     return view('admin_start');
 });
@@ -41,7 +42,7 @@ Route::get('/admin', function () {
 Route::group(['middleware' => 'App\Http\Middleware\CandidateMiddleware'], function()
 {
 
-//put here candidate routes
+Route::resource('/logged', 'LoggedStudentsController');
 
 
 });

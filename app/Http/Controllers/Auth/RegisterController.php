@@ -72,11 +72,13 @@ class RegisterController extends Controller
             'role_id'=>'3',
         ]);
 
+
+
         Profile::create([
             'user_id'         =>      $user->id,
             'first_name'      =>      $data['first_name'],
             'family'          =>      $data['family'],
-            'photo'           =>      $data['photo'],
+            'photo'           =>     'http://127.0.0.1/pic',
             'description'     =>      $data['description'],
         ]);
         return $user;

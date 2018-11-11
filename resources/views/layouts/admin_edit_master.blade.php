@@ -26,13 +26,13 @@
 	<header class="header-section">
 		<div class="header-warp">
 			<div class="container">
-				<a href="#" class="site-logo">
+				<a href="{{ url('/') }}" class="site-logo">
 					<img src="img/logo.png" alt="">
 				</a>
 				@if (Route::has('login'))
                 <div class="user-panel">
                     @auth
-                        <a href="{{ url('admin') }}">Home</a>
+                        <a href="{{ url('admin') }}">Profile</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <span>/</span>

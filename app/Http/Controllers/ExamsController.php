@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Exam;
 use App\Program;
 use App\Session;
+use App\Http\Requests\CreateExamFormRequest;
 
 class ExamsController extends Controller
 {
@@ -37,7 +38,7 @@ class ExamsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(request $request)
     {
         Exam::create([
            'name' => $request->name,

@@ -12,8 +12,8 @@
 					<p>Donec id mattis est. Proin nunc sapien, gravida ut sapien ut, ultrices faucibus sapien. Proin vehicula varius ex, vel feugiat massa scelerisque id. Nullam vulputate a lectus non molestie. </p>
 					<div class="hero-author">
 						<div class="hero-author-pic set-bg" data-setbg="img/hero-author.jpg"></div>
-						<h5>By Sebastian Smith, <span>Senior Lead Developer</span></h5>
-						<a href="#" class="site-btn">See Details <i class="fa fa-angle-right"></i></a>
+						<h5>By Sebastian Smith, <span>Senior Lecturer</span></h5>
+						<a href="{{ route('students.index') }}" class="site-btn">See Details <i class="fa fa-angle-right"></i></a>
 					</div>
 				</div>
 				</div>

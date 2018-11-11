@@ -16,7 +16,7 @@ class CandidateMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() && $request->user()->role->role != 'candidate')
+        if (is_null($request->user()) || $request->user() && $request->user()->role->role != 'candidate')
         {
          abort(403);
         }

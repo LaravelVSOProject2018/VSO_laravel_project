@@ -32,7 +32,7 @@
 				@if (Route::has('login'))
                 <div class="user-panel">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Profile</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <span>/</span>
@@ -52,8 +52,8 @@
 				</a>
 			</li>
 			<li>
-				<a href="{{-- {{ route('sessions.index') }} --}}">
-					Exams
+				<a href="{{ route('logged.index') }}">
+					Enroll
 				</a>
 			</li>
 			<li>
