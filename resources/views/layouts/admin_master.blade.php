@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="{{ asset('css/flaticon.css')}} ">
 <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }} ">
 
-<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }} ">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style_front.css') }} ">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
 
@@ -29,12 +29,17 @@
 				<a href="#" class="site-logo">
 					<img src="img/logo.png" alt="">
 				</a>
-				<div class="user-panel">
-					<a href="#">Login</a><span>/</span><a href="">Register</a>
-				</div>
-				<div class="nav-switch">
-					<i class="fa fa-bars"></i>
-				</div>
+				@if (Route::has('login'))
+                <div class="user-panel">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+                        <span>/</span>
+                        <a href="{{ route('register') }}">Register</a>
+                    @endauth
+                </div>
+           		 @endif
 		<ul class="main-menu">
 {{-- 			<li>
 				<a href="{{ route('/') }}">

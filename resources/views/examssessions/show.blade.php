@@ -1,18 +1,7 @@
-@extends('layouts.admin_master')
-@section('pageheader')
-Session Admin Panel
-@endsection
+@extends('layouts.admin_edit_master')
+
 @section('content')
-  
-@if(session()->has('message'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-    </div>
-{{-- @else 
-	 <div class="alert alert-warning">
-       <strong>Error!</strong>
-    </div>  --}}  
-@endif
+<h2>Available Sessions Panel</h2>
 <table class="table table-striped table-dark" border="2 solid">
 <thead>
 	<tr bg-primary>	
@@ -25,7 +14,7 @@ Session Admin Panel
 	</tr>
 </thead>
 <tbody>
-	@foreach($sessions as $session)
+	@foreach($exams->sessions as $session)
 	<tr class="bg-success">
 		<td>{{ $session->name }}</td>
 		<td>{{ $session->exam->program->name}}</a></td>
@@ -50,3 +39,4 @@ Session Admin Panel
 	</form>
 
 @endsection
+

@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 
 class LoginController extends Controller
 {
@@ -24,7 +25,10 @@ class LoginController extends Controller
      * Where to redirect users after login.
      *
      * @var string
+     *
+     * 
      */
+    
     protected $redirectTo = '/home';
 
     /**
@@ -36,4 +40,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function authenticated(Request $request, $user) {
+     if ($user->role_id == 1) {
+        return redirect('/admin');
+     } else {
+        return redirect('/home');
+     }
+}
+
+  
 }

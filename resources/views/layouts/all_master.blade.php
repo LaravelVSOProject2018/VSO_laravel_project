@@ -42,51 +42,36 @@
            		 @endif
 		<ul class="main-menu">
 			<li>
-				<a href="{{ route('/') }}">
+				<a href="{{ url('/') }}">
 					Home
 				</a>
 			</li>
 			<li>
-				<a href="{{ route('departments') }}">
-					Departments
-					</a>
-			</li> 
-			<li>
-				<a href="{{ route('programs.index') }}">
+				<a href="{{-- {{ route('exams.index') }} --}}">
 					Programs
 				</a>
 			</li>
 			<li>
-				<a href="{{ route('exams.index') }}">
+				<a href="{{-- {{ route('sessions.index') }} --}}">
 					Exams
 				</a>
 			</li>
 			<li>
-				<a href="{{ route('sessions.index') }}">
-					Sessions
+				<a href="{{-- {{ route('sessions.index') }} --}}">
+					About US
 				</a>
 			</li>
 		</ul>
 		</div>
 	</div>
 </header>
-<section class="page-top-edit">
-		<div class="container text-white">
-			<h3>@yield('pageheader')</h3>
-		</div>
-</section>
-<section class="courses-section spad">
-		<div class="container">
 	@yield('content')
-		</div>
-	</section>
 <footer>
 </footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 	<script src="{{ asset('js/circle-progress.min.js') }}"></script>
-	<script src="{{ asset('js/moment.js') }}"></script>
 	<script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

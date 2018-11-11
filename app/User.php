@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function role(){
         return $this->belongsTo('App\Role');

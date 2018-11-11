@@ -36,7 +36,7 @@ Exams Admin Panel
    			 	<td>Not session yet</td>
    		@endif 
 		<td><a class="btn btn-success" href="{{ route('exams.edit',$exam->id)}}">Update</a></td>
-		<td><a class="btn btn-warning" href="{{-- {{ route('exams.index',$program->id)}} --}}">Free</a></td>
+		<td><a class="btn btn-warning" href="{{ url('examssessions/'.$exam->id)}}">Sessions</a></td>
 		<td>
 			<form method="POST" action="{{ route('exams.destroy',$exam->id) }}">
 				{{ csrf_field() }}

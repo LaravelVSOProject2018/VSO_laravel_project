@@ -11,10 +11,16 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return view('start');
 });
 
+
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+{
 //programs controller
 Route::resource('/programs', 'ProgramsController');
 //exams controller
@@ -23,5 +29,22 @@ Route::resource('/exams', 'ExamsController');
 Route::get('programsexams/{id}', 'ProgramsExamsController@show');
 //session controller
 Route::resource('/sessions', 'SessionsController');
+//exams, then show session controller
+Route::get('examssessions/{id}', 'ExamsSessionsController@show');
+//admin page
+Route::get('/admin', function () {
+    return view('admin_start');
+});
+});
+
+Route::group(['middleware' => 'App\Http\Middleware\CandidateMiddleware'], function()
+{
+
+//put here candidate routes
 
 
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
